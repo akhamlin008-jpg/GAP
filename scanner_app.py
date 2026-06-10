@@ -126,7 +126,7 @@ def run_scan(signal_key, min_price, max_price, min_vol, top_n, _stamp):
 st.set_page_config(page_title="Market Scanner", layout="wide")
 st.title("Market Scanner")
 
-if not PKVYMUIHXDS2AUY3S6VAI56LCR or not APCA_SECRET:
+if not PKVYMUIHXDS2AUY3S6VAI56LCR or not HZGzaoE2o53uvhjPG46Ac6nWPQoNzK65zXkpTKB2BcCV:
     st.error("Set APCA_API_KEY_ID and HZGzaoE2o53uvhjPG46Ac6nWPQoNzK65zXkpTKB2BcCV as environment "
              "variables, then restart: streamlit run scanner_app.py")
     st.stop()
