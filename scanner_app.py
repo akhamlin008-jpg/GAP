@@ -56,7 +56,7 @@ def build_universe():
 
 def snapshot_batch(symbols):
     url = "https://data.alpaca.markets/v2/stocks/snapshots"
-    headers = {"APCA-API-KEY-ID": APCA_KEY, "APCA-API-SECRET-KEY": APCA_SECRET}
+    headers = {"APCA-API-KEY-ID": PKIWUTKRU7H6M37MJZGHSGBKPL, "APCA-API-SECRET-KEY": 6N9r8BPiYuh7cGV9ChhMP4CJdSDZyPRUfo6VgxV26Cr9}
     params = {"symbols": ",".join(symbols), "feed": DATA_FEED}
     try:
         r = requests.get(url, headers=headers, params=params, timeout=30)
