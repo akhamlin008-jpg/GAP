@@ -29,8 +29,8 @@ import requests
 import streamlit as st
 
 # ---------------- CONFIG (secrets from env only) ----------------
-APCA_KEY    = os.environ.get("APCA_API_KEY_ID")
-APCA_SECRET = os.environ.get("APCA_API_SECRET_KEY")
+PKVYMUIHXDS2AUY3S6VAI56LCR    = os.environ.get("APCA_API_KEY_ID")
+HZGzaoE2o53uvhjPG46Ac6nWPQoNzK65zXkpTKB2BcCV = os.environ.get("APCA_API_SECRET_KEY")
 DATA_FEED   = "iex"
 UNIVERSE_CACHE = "sec_universe.json"
 SEC_USER_AGENT = "market-scanner akhamlin008@gmail.com"
@@ -56,7 +56,7 @@ def build_universe():
 
 def snapshot_batch(symbols):
     url = "https://data.alpaca.markets/v2/stocks/snapshots"
-    headers = {"APCA-API-KEY-ID": PKIWUTKRU7H6M37MJZGHSGBKPL, "APCA-API-SECRET-KEY": 6N9r8BPiYuh7cGV9ChhMP4CJdSDZyPRUfo6VgxV26Cr9}
+    headers = {"APCA-API-KEY-ID": APCA_KEY, "APCA-API-SECRET-KEY": APCA_SECRET}
     params = {"symbols": ",".join(symbols), "feed": DATA_FEED}
     try:
         r = requests.get(url, headers=headers, params=params, timeout=30)
