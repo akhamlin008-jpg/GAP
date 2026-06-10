@@ -30,7 +30,7 @@ import streamlit as st
 
 # ---------------- CONFIG (secrets from env only) ----------------
 PKVYMUIHXDS2AUY3S6VAI56LCR    = os.environ.get("APCA_API_KEY_ID")
-HZGzaoE2o53uvhjPG46Ac6nWPQoNzK65zXkpTKB2BcCV = os.environ.get("HZGzaoE2o53uvhjPG46Ac6nWPQoNzK65zXkpTKB2BcCV")
+HZGzaoE2o53uvhjPG46Ac6nWPQoNzK65zXkpTKB2BcCV = os.environ.get("APCA_API_KEY_SECRET")
 DATA_FEED   = "iex"
 UNIVERSE_CACHE = "sec_universe.json"
 SEC_USER_AGENT = "market-scanner akhamlin008@gmail.com"
