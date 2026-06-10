@@ -14,7 +14,7 @@ WHY CACHING MATTERS HERE:
 
 RUN IT:
   pip install streamlit requests
-  set APCA_API_KEY_ID / HZGzaoE2o53uvhjPG46Ac6nWPQoNzK65zXkpTKB2BcCV as environment variables first
+  set APCA_API_KEY_ID / APCA_API_SECRET_KEY as environment variables first
   then:  streamlit run scanner_app.py
   (a browser tab opens automatically)
 
@@ -29,8 +29,8 @@ import requests
 import streamlit as st
 
 # ---------------- CONFIG (secrets from env only) ----------------
-PKVYMUIHXDS2AUY3S6VAI56LCR    = os.environ.get("APCA_API_KEY_ID")
-HZGzaoE2o53uvhjPG46Ac6nWPQoNzK65zXkpTKB2BcCV = os.environ.get("APCA_API_KEY_SECRET")
+APCA_KEY    = os.environ.get("APCA_API_KEY_ID")
+APCA_SECRET = os.environ.get("APCA_API_SECRET_KEY")
 DATA_FEED   = "iex"
 UNIVERSE_CACHE = "sec_universe.json"
 SEC_USER_AGENT = "market-scanner akhamlin008@gmail.com"
@@ -56,7 +56,7 @@ def build_universe():
 
 def snapshot_batch(symbols):
     url = "https://data.alpaca.markets/v2/stocks/snapshots"
-    headers = {"APCA-API-KEY-ID": PKVYMUIHXDS2AUY3S6VAI56LCR, "APCA-API-SECRET-KEY": HZGzaoE2o53uvhjPG46Ac6nWPQoNzK65zXkpTKB2BcCV}
+    headers = {"APCA-API-KEY-ID": APCA_KEY, "APCA-API-SECRET-KEY": APCA_SECRET}
     params = {"symbols": ",".join(symbols), "feed": DATA_FEED}
     try:
         r = requests.get(url, headers=headers, params=params, timeout=30)
@@ -126,8 +126,8 @@ def run_scan(signal_key, min_price, max_price, min_vol, top_n, _stamp):
 st.set_page_config(page_title="Market Scanner", layout="wide")
 st.title("Market Scanner")
 
-if not PKVYMUIHXDS2AUY3S6VAI56LCR or not HZGzaoE2o53uvhjPG46Ac6nWPQoNzK65zXkpTKB2BcCV:
-    st.error("Set APCA_API_KEY_ID and APCA_API_KEY_SECRET as environment "
+if not APCA_KEY or not APCA_SECRET:
+    st.error("Set APCA_API_KEY_ID and APCA_API_SECRET_KEY as environment "
              "variables, then restart: streamlit run scanner_app.py")
     st.stop()
 
